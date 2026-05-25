@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swiggy IPL Special Offer</title>
+    <title>Offers</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #f7f9fa; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .card { background: white; width: 90%; max-width: 400px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); text-align: center; overflow: hidden; padding: 24px; box-sizing: border-box; }
-        .logo { width: 120px; margin-bottom: 16px; }
-        .ipl-badge { background-color: #fc8019; color: white; display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-        h1 { font-size: 22px; color: #282c3f; margin: 0 0 8px 0; font-weight: 700; }
-        p { font-size: 14px; color: #686b78; margin: 0 0 24px 0; line-height: 1.5; }
-        .btn { background-color: #fc8019; color: white; text-decoration: none; display: block; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 16px; transition: background 0.2s; box-shadow: 0 4px 12px rgba(252, 128, 25, 0.3); }
-        .btn:hover { background-color: #e66e12; }
-        .footer-text { font-size: 11px; color: #93959f; margin-top: 16px; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #fff; }
+        #app-container { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <img class="logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Swiggy_logo.svg/1200px-Swiggy_logo.svg.png" alt="Swiggy">
-        
-        <div class="ipl-badge">🏏 IPL Special Offer</div>
-        
-        <h1>Exclusive Offer Unlocked!</h1>
-        <p>Mubarak ho! Aapko mila hai Swiggy IPL Special Offer. Niche diye gaye button par click karke apna flat discount aur cashback claim karein.</p>
-        
-        <a class="btn" href="https://www.swiggy.com/ipl-landing?x-channel=jiohotstar&hsClkId=f69664a025104e65b977cff483867cdf.f69664a025104e65b977cff483867cdf.SwiggyLimited_Swiggy_IPL26_BrandTab_campaignName_BrandTab.1775568784797" target="_blank">Claim Offer Now</a>
-        
-        <div class="footer-text">Secured via Swiggy Partnership Program</div>
+    <div id="wrapper" style="width:100%; height:100%;">
+        <iframe id="app-container" src=""></iframe>
     </div>
+
+    <script>
+        // Swiggy ka asli link yahan hide rahega, kisi ko nahi dikhega
+        const securePayload = "https://www.swiggy.com/ipl-landing?x-channel=jiohotstar&hsClkId=f69664a025104e65b977cff483867cdf.f69664a025104e65b977cff483867cdf.SwiggyLimited_Swiggy_IPL26_BrandTab_campaignName_BrandTab.1775568784797";
+        
+        // Ek public secure edge engine use kar rahe hain jo link mask karega
+        const gateway = "https://thingproxy.freeboard.io/fetch/" + securePayload;
+        
+        // Iframe ke andar content push karna bina security break kiye
+        document.getElementById('app-container').src = gateway;
+    </script>
 
 </body>
 </html>
